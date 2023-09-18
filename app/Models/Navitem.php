@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Navitem extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['label', 'link'];
 }

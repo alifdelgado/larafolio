@@ -2,7 +2,7 @@
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">
-                <span class="sr-only">Portfolio's Alif</span>
+                <span class="sr-only">Alif's portfolio</span>
                 <img class="w-auto h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                     alt="">
             </a>
@@ -19,10 +19,11 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Product</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+            <x-navigation.links :items="$items" />
+            @auth()
+                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Edit</a>
+                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">New</a>
+            @endauth
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
@@ -37,11 +38,11 @@
             class="fixed inset-y-0 right-0 z-50 w-full px-6 py-6 overflow-y-auto bg-white sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div class="flex items-center justify-between">
                 <a href="#" class="-m-1.5 p-1.5">
-                    <span class="sr-only">Your Company</span>
+                    <span class="sr-only">Alif's portfolio</span>
                     <img class="w-auto h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                         alt="">
                 </a>
-                <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="showMenu = true">
                     <span class="sr-only">Close menu</span>
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                         aria-hidden="true">
@@ -49,17 +50,14 @@
                     </svg>
                 </button>
             </div>
-            <div class="flow-root mt-6">
+            <div class="flow-root mt-6" x-data="{ showMenu: false }">
                 <div class="-my-6 divide-y divide-gray-500/10">
                     <div class="py-6 space-y-2">
+                        <x-navigation.responsive.links :items="$items" />
                         <a href="#"
-                            class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50">Product</a>
+                            class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50">Edit</a>
                         <a href="#"
-                            class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50">Features</a>
-                        <a href="#"
-                            class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50">Marketplace</a>
-                        <a href="#"
-                            class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50">Company</a>
+                            class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-900 rounded-lg hover:bg-gray-50">New</a>
                     </div>
                     <div class="py-6">
                         <a href="#"
